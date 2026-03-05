@@ -5,18 +5,12 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
-import com.google.android.material.appbar.MaterialToolbar;
 
 public class ProductInfoActivity extends AppCompatActivity {
-
-    //todo viewbinding
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +22,11 @@ public class ProductInfoActivity extends AppCompatActivity {
         String imageUrl = getIntent().getStringExtra("image_url");
 
         //modificamos el actionBar por defecto de Material3
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(nombre.toUpperCase());
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle(nombre != null ? nombre.toUpperCase(): "");
+        }
 
         ImageView ivProduct = findViewById(R.id.iv_product_detallado);
         TextView tvProduct = findViewById(R.id.tv_nombre_product);

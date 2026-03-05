@@ -5,20 +5,6 @@ public class Product {
     private String title;
     private float price;
     private String description;
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
-                ", image='" + image + '\'' +
-                ", rating=" + rating +
-                '}';
-    }
-
     private String category;
     private String image;
     private Rating rating;
