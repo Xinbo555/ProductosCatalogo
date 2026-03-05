@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.peliculacatalogo.databinding.ActivityMainBinding;
 import com.example.peliculacatalogo.models.Product;
 import com.example.peliculacatalogo.util.ApiProduct;
 
@@ -23,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        RecyclerView rvProduct = findViewById(R.id.rv_product);
+        RecyclerView rvProduct = binding.rvProduct;
         rvProduct.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ProductAdapter(productList);
 
