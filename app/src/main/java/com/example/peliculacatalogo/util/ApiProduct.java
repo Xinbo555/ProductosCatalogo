@@ -15,9 +15,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ApiProduct {
-    public static List<Product> getMovies(){
+    public static List<Product> getMovies() {
         List<Product> productList = new ArrayList<>();
-        try{
+        try {
             URL url = new URL("https://fakestoreapi.com/products");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
@@ -36,11 +36,11 @@ public class ApiProduct {
             Gson gson = new Gson();
             Product[] productArray = gson.fromJson(content.toString(), Product[].class);
             productList.addAll(Arrays.asList(productArray));
-            Log.i("productos",productList.toString());
+            Log.i("productos", productList.toString());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Log.i("productos",productList.toString());
+        Log.i("productos", productList.toString());
         return productList;
     }
 }

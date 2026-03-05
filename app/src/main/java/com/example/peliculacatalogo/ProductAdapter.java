@@ -15,16 +15,17 @@ import com.example.peliculacatalogo.models.Product;
 
 import java.util.List;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder>{
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
     private final List<Product> productList;
 
     public ProductAdapter(List<Product> productList) {
         this.productList = productList;
     }
 
-    public static class ProductViewHolder extends RecyclerView.ViewHolder{
+    public static class ProductViewHolder extends RecyclerView.ViewHolder {
         ImageView ivProduct;
         TextView tvName;
+
         public ProductViewHolder(View itemView) {
             super(itemView);
             ivProduct = itemView.findViewById(R.id.iv_product);
@@ -49,13 +50,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 .into(holder.ivProduct);
         holder.tvName.setText(currentProduct.getTitle());
 
-        holder.ivProduct.setOnClickListener(v-> {
+        holder.ivProduct.setOnClickListener(v -> {
             Intent intent = new Intent(holder.itemView.getContext(), ProductInfoActivity.class);
 
             //pasamos argumentos necesarios
-            intent.putExtra("product_name", currentProduct.getTitle());
-            intent.putExtra("description", currentProduct.getDescription());
-            intent.putExtra("image_url", currentProduct.getImage());
+            intent.putExtra("product", currentProduct);
 
             //inicializamos el intent
             holder.itemView.getContext().startActivity(intent);

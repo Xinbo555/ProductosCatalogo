@@ -4,6 +4,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="productName">#AA000000</color>
-    <color name="refreshColor">#99000000</color>
+    <color name="refreshColor">#99ffffff</color>
 
 </resources>
