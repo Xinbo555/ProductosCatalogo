@@ -35,13 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView rvProduct = findViewById(R.id.rv_product);
         rvProduct.setLayoutManager(new LinearLayoutManager(this));
-        rvProduct.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-            }
-        });
         adapter = new ProductAdapter(productList);
 
         loadProducts();
